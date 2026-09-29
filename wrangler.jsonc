@@ -1,0 +1,36 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "tam-an-motor-v1",
+  "main": "worker/index.js",
+  "compatibility_date": "2026-06-01",
+  "workers_dev": true,
+
+  "secrets": {
+    "required": ["SESSION_SECRET", "ADMIN_PASSWORD"]
+  },
+
+  "assets": {
+    "directory": "./public",
+    "binding": "ASSETS",
+    "not_found_handling": "single-page-application"
+  },
+
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "tam-an-db-v2",
+      "database_id": "90b8f923-564c-4039-a3bf-bfc17e075923"
+    }
+  ],
+
+  "r2_buckets": [
+    {
+      "binding": "IMAGES",
+      "bucket_name": "tam-an-xe-may"
+    }
+  ],
+
+  "ai": {
+    "binding": "AI"
+  }
+}
